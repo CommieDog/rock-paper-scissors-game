@@ -1,3 +1,7 @@
+const winResult = "Win";
+const lossResult = "Loss";
+const tieResult = "Tie";
+
 var computerMove;
 var playerMove = prompt("Enter a letter: R, P, or S");
 playerMove = playerMove.toUpperCase(); // Makes comparisons easier
@@ -7,15 +11,15 @@ if(validateUserInput())
     computerMove = getComputerMove();
     alert("The computer chose " + computerMove)
     var result = getWinner();
-    if (result === "Tie")
+    if (result === tieResult)
     {
         alert("You tied.");
     }
-    else if (result === "Win")
+    else if (result === winResult)
     {
         alert("You Win!");
     }
-    else if (result === "Loss")
+    else if (result === lossResult)
     {
         alert("You lost!");
     }
@@ -39,33 +43,33 @@ function getWinner()
 {
     if (playerMove === computerMove)
     {
-        return "Tie";
+        return tieResult;
     }
     // Player win conditions
     else if (playerMove === "P" && computerMove === "R")
     {
-        return "Win";
+        return winResult;
     }
     else if (playerMove === "S" && computerMove === "P")
     {
-        return "Win";
+        return winResult;
     }
     else if (playerMove === "R" && computerMove === "S")
     {
-        return "Win";
+        return winResult;
     }
 
     // Player loss conditions
     else if (playerMove === "P" && computerMove === "S")
     {
-        return "Loss";
+        return lossResult;
     }
     else if (playerMove === "S" && computerMove === "R")
     {
-        return "Loss";
+        return lossResult;
     }
     else if (playerMove === "R" && computerMove === "P")
     {
-        return "Loss";
+        return lossResult;
     }
 }
