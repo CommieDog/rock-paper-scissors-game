@@ -2,28 +2,46 @@ const winResult = "Win";
 const lossResult = "Loss";
 const tieResult = "Tie";
 
+var winsNumber = 0;
+var lossNumber = 0;
+var tieNumber = 0;
+
 var computerMove;
-var playerMove = prompt("Enter a letter: R, P, or S");
-playerMove = playerMove.toUpperCase(); // Makes comparisons easier
-if(validateUserInput())
-{
-    alert("You chose " + playerMove);
-    computerMove = getComputerMove();
-    alert("The computer chose " + computerMove)
-    var result = getWinner();
-    if (result === tieResult)
+do {
+    var playerMove = prompt("Enter a letter: R, P, or S");
+    playerMove = playerMove.toUpperCase(); // Makes comparisons easier
+    if(validateUserInput())
     {
-        alert("You tied.");
-    }
-    else if (result === winResult)
-    {
-        alert("You Win!");
-    }
-    else if (result === lossResult)
-    {
-        alert("You lost!");
+        alert("You chose " + playerMove);
+        computerMove = getComputerMove();
+        alert("The computer chose " + computerMove)
+        var result = getWinner();
+        if (result === tieResult)
+        {
+            alert("You tied.");
+            tieNumber = tieNumber + 1;
+        }
+        else if (result === winResult)
+        {
+            alert("You Win!");
+            winsNumber = winsNumber + 1;
+        }
+        else if (result === lossResult)
+        {
+            alert("You lost!");
+            lossNumber = lossNumber + 1;
+        }
+        alert(
+            "Ties= " + tieNumber + "\n" +
+            "Wins= " + winsNumber + "\n" +
+            "Losses= " + lossNumber
+        )
+        confirm("Would you like to play again?")
     }
 }
+
+while (confirm("Would you like to play again?"))
+
 
 function validateUserInput()
 {
