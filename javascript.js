@@ -36,10 +36,8 @@ do {
             "Wins= " + winsNumber + "\n" +
             "Losses= " + lossNumber
         )
-        confirm("Would you like to play again?")
     }
 }
-
 while (confirm("Would you like to play again?"))
 
 
